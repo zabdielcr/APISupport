@@ -8880,19 +8880,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zabdiel\\.nuget\\packages\\": {}
+    "C:\\Users\\Noel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zabdiel\\source\\repos\\APISupport\\APISupport\\APISupport.csproj",
+      "projectUniqueName": "C:\\Users\\Noel\\Documents\\Lenguajes para aplicaciones comerciales\\APISupport\\APISupport\\APISupport\\APISupport.csproj",
       "projectName": "APISupport",
-      "projectPath": "C:\\Users\\zabdiel\\source\\repos\\APISupport\\APISupport\\APISupport.csproj",
-      "packagesPath": "C:\\Users\\zabdiel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zabdiel\\source\\repos\\APISupport\\APISupport\\obj\\",
+      "projectPath": "C:\\Users\\Noel\\Documents\\Lenguajes para aplicaciones comerciales\\APISupport\\APISupport\\APISupport\\APISupport.csproj",
+      "packagesPath": "C:\\Users\\Noel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Noel\\Documents\\Lenguajes para aplicaciones comerciales\\APISupport\\APISupport\\APISupport\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\zabdiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Noel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8959,7 +8959,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

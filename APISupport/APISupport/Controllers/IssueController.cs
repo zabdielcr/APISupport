@@ -17,7 +17,7 @@ namespace APISupport.Controllers
 
         public IssueController(dbSupportContext context)
         {
-            _context = context;
+            _context = new dbSupportContext();
         }
 
         // GET: api/Issue
@@ -105,5 +105,8 @@ namespace APISupport.Controllers
         {
             return _context.Issues.Any(e => e.ReportNumber == id);
         }
+
+
+
     }
 }

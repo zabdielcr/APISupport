@@ -17,7 +17,7 @@ namespace APISupport.Controllers
 
         public SupervisorController(dbSupportContext context)
         {
-            _context = context;
+            _context = new dbSupportContext();
         }
 
         // GET: api/Supervisor

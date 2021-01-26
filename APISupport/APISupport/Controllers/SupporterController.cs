@@ -17,7 +17,7 @@ namespace APISupport.Controllers
 
         public SupporterController(dbSupportContext context)
         {
-            _context = context;
+            _context = new dbSupportContext();
         }
 
         // GET: api/Supporter
