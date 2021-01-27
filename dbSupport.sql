@@ -25,15 +25,16 @@ CREATE TABLE [dbo].[Supporter](
 GO
 
 Create table Issue(
-	ReportNumber int primary key identity(1,1),
-	IdClient int,
+	Id integer primary key identity(1,1),
+	Id_client integer,
 	[Description] varchar(500),
-	time_stamp date,
-	contact_phone varchar(255),
-	contact_email varchar(255),
+	Time_stamp date,
+	Contact_phone varchar(255),
+	Contact_email varchar(255),
+	[Classification] varchar(255),
 	[status] varchar(255),
-	[name] varchar(255)
 )
+
 
 
 CREATE TABLE [dbo].[Note](
@@ -44,7 +45,7 @@ CREATE TABLE [dbo].[Note](
  CONSTRAINT [PK_Note] PRIMARY KEY CLUSTERED 
 (
 	[IdNotes] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON,) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
@@ -63,7 +64,7 @@ CREATE TABLE [dbo].[Service](
  CONSTRAINT [PK_Service] PRIMARY KEY CLUSTERED 
 (
 	[IdService] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
