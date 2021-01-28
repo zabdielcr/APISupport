@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVCSupport</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @if (@HttpContextAccessor.HttpContext.Session.GetString("email") != null)
+    {
+
+
+        <section id="supporter">
+            <div class="container">
+                <div class="row">
+                    <div class="section-title">
+                        <h2>Supporter</h2>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" id="table">
+
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            FirstSurname
+                                        </th>
+                                        <th>
+                                            SecondSurname
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Password
+                                        </th>
+                                        <th>
+                                            Role
+                                        </th>
+                                        <th>
+                                            IdSupervisor
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbody">
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        }
+    </body>
+</html>
