@@ -2,49 +2,51 @@ USE [Support]
 GO
 
 CREATE TABLE [dbo].[Supporter](
-	[Id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](30) NOT NULL,
-	[FirstName] [nvarchar](30) NOT NULL,
-	[SecondName] [nvarchar](30) NOT NULL,
-	[Address] [nvarchar](40) NOT NULL,
-	[Email] [nvarchar](40) NOT NULL,
-	[Password] [nvarchar](40) NOT NULL,
-	[role] [int] NOT NULL,
+	[id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](30) NOT NULL,
+	[firstName] [nvarchar](30) NOT NULL,
+	[secondName] [nvarchar](30) NOT NULL,
+	[address] [nvarchar](40) NOT NULL,
+	[email] [nvarchar](40) NOT NULL,
+	[password] [nvarchar](40) NOT NULL
  )
 
  CREATE TABLE [dbo].[Supervisor](
-	[Id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](30) NOT NULL,
-	[FirstName] [nvarchar](30) NOT NULL,
-	[SecondName] [nvarchar](30) NOT NULL,
-	[Address] [nvarchar](40) NOT NULL,
-	[Email] [nvarchar](40) NOT NULL,
-	[Password] [nvarchar](40) NOT NULL,
-	[role] [int] NOT NULL,
+	[id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](30) NOT NULL,
+	[firstName] [nvarchar](30) NOT NULL,
+	[secondName] [nvarchar](30) NOT NULL,
+	[address] [nvarchar](40) NOT NULL,
+	[email] [nvarchar](40) NOT NULL,
+	[password] [nvarchar](40) NOT NULL
 )
 GO
 
 Create table Issue(
-	Id integer primary key identity(1,1),
-	Id_client integer,
-	[Description] varchar(500),
-	Time_stamp date,
-	Contact_phone varchar(255),
-	Contact_email varchar(255),
-	[Classification] varchar(255),
+	id integer primary key identity(1,1),
+	id_client integer,
+	[description] varchar(500),
+	time_stamp date,
+	contact_phone varchar(255),
+	contact_email varchar(255),
+	[classification] varchar(255),
 	[status] varchar(255),
 )
 
+Create table Supporter_Issue(
+id_supporter integer foreign key references Supporter(id), 
+id_issue integer foreign key references Issue(id)
+) 
 
 
 CREATE TABLE [dbo].[Note](
-	[IdNotes] [int] IDENTITY(1,1) NOT NULL,
-	[Description] [nvarchar](50) NOT NULL,
-	[NoteTimestamp] [timestamp] NOT NULL,
-	[IdIssue] [int] NOT NULL,
+	[id_notes] [int] IDENTITY(1,1) NOT NULL,
+	[description] [nvarchar](50) NOT NULL,
+	[noteTimestamp] [timestamp] NOT NULL,
+	[id_issue] [int] NOT NULL,
  CONSTRAINT [PK_Note] PRIMARY KEY CLUSTERED 
 (
-	[IdNotes] ASC
+	[id_notes] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON,) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -57,13 +59,13 @@ ALTER TABLE [dbo].[Note] CHECK CONSTRAINT [FK_Note_Issue]
 GO
 
 CREATE TABLE [dbo].[Service](
-	[IdService] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](30) NULL,
-	[IdSupporter] [nvarchar](40) NULL,
-	[IdIssue] [int] NULL,
+	[id_service] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](30) NULL,
+	[idSupporter] [nvarchar](40) NULL,
+	[id_issue] [int] NULL,
  CONSTRAINT [PK_Service] PRIMARY KEY CLUSTERED 
 (
-	[IdService] ASC
+	[id_service] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -81,10 +83,6 @@ GO
 
 ALTER TABLE [dbo].[Service] CHECK CONSTRAINT [FK_Service_Supporter]
 GO
-
-
-
-
 
 ALTER TABLE [dbo].[Supporter]  WITH CHECK ADD  CONSTRAINT [FK_Supporter_Supervisor] FOREIGN KEY([IdSupervisor])
 REFERENCES [dbo].[Supervisor] ([Email])
