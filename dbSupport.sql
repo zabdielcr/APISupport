@@ -9,7 +9,8 @@ CREATE TABLE [dbo].[Supporter_Supervisor](
 	[address] [nvarchar](40) NOT NULL,
 	[email] [nvarchar](40) NOT NULL,
 	[password] [nvarchar](40) NOT NULL,
-	[services] [nvarchar](50) NOT NULL
+	[services] [nvarchar](50) NOT NULL,
+	[rol] int NOT NULL
  )
 
 Create table Issue(
@@ -37,7 +38,7 @@ CREATE TABLE [dbo].[Note](
  CONSTRAINT [PK_Note] PRIMARY KEY CLUSTERED 
 (
 	[id_notes] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON,) ON [PRIMARY]
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
