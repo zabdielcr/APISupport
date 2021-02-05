@@ -1,7 +1,7 @@
 USE [Support]
 GO
 
-CREATE TABLE [dbo].[Supporter_Suervisor](
+CREATE TABLE [dbo].[Supporter_Supervisor](
 	[id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	[name] [nvarchar](30) NOT NULL,
 	[firstName] [nvarchar](30) NOT NULL,
@@ -24,7 +24,7 @@ Create table Issue(
 )
 
 Create table Supporter_Issue(
-id_supporter integer foreign key references Supporter(id), 
+id_supporter integer foreign key references Supporter_Supervisor(id), 
 id_issue integer foreign key references Issue(id)
 ) 
 
