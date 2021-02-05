@@ -1,26 +1,16 @@
 USE [Support]
 GO
 
-CREATE TABLE [dbo].[Supporter](
+CREATE TABLE [dbo].[Supporter_Suervisor](
 	[id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	[name] [nvarchar](30) NOT NULL,
 	[firstName] [nvarchar](30) NOT NULL,
 	[secondName] [nvarchar](30) NOT NULL,
 	[address] [nvarchar](40) NOT NULL,
 	[email] [nvarchar](40) NOT NULL,
-	[password] [nvarchar](40) NOT NULL
+	[password] [nvarchar](40) NOT NULL,
+	[services] [nvarchar](50) NOT NULL
  )
-
- CREATE TABLE [dbo].[Supervisor](
-	[id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	[name] [nvarchar](30) NOT NULL,
-	[firstName] [nvarchar](30) NOT NULL,
-	[secondName] [nvarchar](30) NOT NULL,
-	[address] [nvarchar](40) NOT NULL,
-	[email] [nvarchar](40) NOT NULL,
-	[password] [nvarchar](40) NOT NULL
-)
-GO
 
 Create table Issue(
 	id integer primary key identity(1,1),
