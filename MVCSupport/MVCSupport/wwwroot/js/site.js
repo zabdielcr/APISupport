@@ -42,12 +42,11 @@ function LoadData() {
 }
 
 function Add() {
-    var res = validate();
-    if (res == false) {
-        return false;
+ 
+   
     }
     var supporter = {
-        id: $('#Id').val(),
+      
         name: $('#Name').val(),
         firstSurname: $('#FirstSurname').val(),
         secondSurname: $('#SecondSurname').val(),
@@ -70,9 +69,9 @@ function Add() {
             alert(errormessage.responseText);
         }
     });
-}
 
-//Function for getting the Data Based upon Employee ID  
+
+  
 function getbyID(id) {
     $('#Id').css('border-color', 'lightgrey');
     $('#Name').css('border-color', 'lightgrey');
@@ -132,12 +131,12 @@ function Update() {
         dataType: "json",
         success: function (result) {
             loadData();
-            $('#myModal').modal('hide');
-            $('#EmployeeID').val("");
-            $('#Name').val("");
-            $('#Age').val("");
-            $('#State').val("");
-            $('#Country').val("");
+            $('#').modal('hide');
+            $('#Id').val("");
+            $('#FirstSurname').val("");
+            $('#SecondSurname').val("");
+            $('#Email').val("");
+            $('#Password').val("");
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -145,7 +144,7 @@ function Update() {
     });
 }
 
-//function for deleting employee's record  
+
 function Delele(ID) {
     var ans = confirm("Are you sure you want to delete this Record?");
     if (ans) {
@@ -163,3 +162,13 @@ function Delele(ID) {
         });
     }
 }  
+
+
+$(function () {
+    $('input, select').on('focus', function () {
+        $(this).parent().find('.input-group-text').css('border-color', '#80bdff');
+    });
+    $('input, select').on('blur', function () {
+        $(this).parent().find('.input-group-text').css('border-color', '#ced4da');
+    });
+});

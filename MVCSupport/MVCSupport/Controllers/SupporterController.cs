@@ -31,7 +31,7 @@ namespace MVCSupport.Controllers
 
         }
 
-        public JsonResult Get()
+       public JsonResult Get()
         {
 
             IEnumerable<Supporter> supporter = null;
@@ -60,7 +60,7 @@ namespace MVCSupport.Controllers
 
             return Json(supporter);
         }
-
+       
         public JsonResult Exists()
         {
 

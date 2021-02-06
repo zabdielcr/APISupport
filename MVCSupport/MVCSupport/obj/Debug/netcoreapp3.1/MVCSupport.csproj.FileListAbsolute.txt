@@ -75,7 +75,6 @@ C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\bin\Debug\netcoreapp3.1\runtimes\
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.csprojAssemblyReference.cache
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.AssemblyInfoInputs.cache
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.AssemblyInfo.cs
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.csproj.CoreCompileInputs.cache
@@ -103,3 +102,4 @@ C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSuppor
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.dll
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.pdb
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.genruntimeconfig.cache
+C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.csprojAssemblyReference.cache
