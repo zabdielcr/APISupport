@@ -120,35 +120,39 @@ namespace MVCSupport.Controllers
 
             return Json(supporter);
         }
-
-        public JsonResult Post()
+        [HttpPost]
+        public int Post([FromBody] Supporter supporter)
         {
 
-            IEnumerable<Supporter> supporter = null;
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
-                var responseTask = client.GetAsync("Post");
-                responseTask.Wait();
 
-                var result = responseTask.Result;
+                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
+
+                HttpResponseMessage result = client.PostAsJsonAsync("Post", supporter).Result;
+
 
                 if (result.IsSuccessStatusCode)
                 {
-                    var readTask = result.Content.ReadAsAsync<IList<Supporter>>();
-                    readTask.Wait();
 
-                    supporter = readTask.Result;
+                    int readTask = Int32.Parse(result.Content.ReadAsStringAsync().Result);
+
+                    return readTask;
+
                 }
                 else
                 {
-                    supporter = Enumerable.Empty<Supporter>();
+
                     ModelState.AddModelError(string.Empty, "Server error. Please contact a administrator");
                 }
             }
 
-            return Json(supporter);
+            return 0;
+
+
+
+
         }
 
         public JsonResult Delete(Supporter supporter, int id)
@@ -183,7 +187,7 @@ namespace MVCSupport.Controllers
 
 
 
-        public Supporter GetToAuthenticate(string email, string password)
+        public Supporter GetToAuthenticate( string email, string password)
         {
 
             Supporter supporter = null;
@@ -209,11 +213,30 @@ namespace MVCSupport.Controllers
                 catch (AggregateException agg_ex)
                 {
                     var ex = agg_ex.InnerExceptions[0];
+                  
+                    
                 }
 
             }
 
             return supporter;
+        }
+        [HttpPost]
+        public ActionResult create(Supporter supporter)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
+                var postTask = client.PostAsJsonAsync<Supporter>("supporter", supporter);
+                postTask.Wait();
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            ModelState.AddModelError(string.Empty, "Error, Contacta con el administrador");
+            return View(supporter);
         }
     }
 }

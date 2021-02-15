@@ -34,14 +34,14 @@
                         <div class="row">
                             <iv class="col-lg-10 col-xl-7 mx-auto">
                                 <h3 class="display-4">Login</h3>
-                                <p class="text-muted mb-4"> </p>
-                                <form>
 
-                                    @using (Html.BeginForm("Index", "Supporter", FormMethod.Post))
+                                
+
+                                    @using (Html.BeginForm("Index", "Supporter", FormMethod.Post, new { @id = "begin" }))
                                     {
                                         <div class="form-group mb-3">
 
-                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Email" } })
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Email", @id = "email" } })
 
                                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
@@ -49,95 +49,96 @@
 
                                         <div class="form-group mb-3">
 
-                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "Enter your Password" } })
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "Enter your Password", @id = "pass" } })
 
                                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
                                         </div>
-                            
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                                <label for="customCheck1" class="custom-control-label">Remember password</label>
-                            </div>
 
-                            <div class="form-group mb-3">
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                                            <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                        </div>
 
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
-                            </div>
+                                        <div class="form-group mb-3">
 
-
-                        }
+                                            <button  type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" value="Login" >Sign in</button>
+                                           
+                                        </div>
 
 
-
-
-                                    </form>
-
-                                <p class="text-muted mb-4">Don't have an account?</p>
-                                    <button type="button" class="btn btn-success center-block" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Create New Account</button>
-
-                                    <div class="modal fade" id="myModal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <button type="button" class="close" data-dismiss="modal">×</button>
-                                            <div class="modal-content">
-
-                                                <div class="modal-body">
+                                            }
 
 
 
-                                                    <h2>Sign Up</h2>
-                                                    <p>Please fill in this form to create an account!</p>
-                                                    <hr>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-xs-6"><input type="text" class="form-control" name="name" placeholder="First Name" required="required"></div>
-                                                            <div class="col-xs-6"><input type="text" class="form-control" name="firstSurname" placeholder="Last Name" required="required"></div>
 
+
+
+                                            <p class="text-muted mb-4">Don't have an account?</p>
+                                            <button type="button" class="btn btn-success center-block" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Create New Account</button>
+
+                                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-body">
+
+
+
+                                                            <h2>Sign Up</h2>
+                                                            <p>Please fill in this form to create an account!</p>
+                                                            <hr>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6"><input type="text" class="form-control" name="name" id="name" placeholder="First Name" required="required"></div>
+                                                                    <div class="col-xs-6"><input type="text" class="form-control" name="first Surname" id="firstSurname" placeholder="Last Name" required="required"></div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="second SurName" id="secondSurname" placeholder="Second SurName" required="required" autocomplete="off">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="email" class="form-control" name="email" placeholder="Email" id="email" required="required" autocomplete="off">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required="required">
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="role" id="role" placeholder="Role" required="required">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="id Supervisor" id="idSupervisor" placeholder="Id Supervisor" required="required">
+                                                            </div>
+
+                                                            <div class="form-group">
+
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button type="submit" class="btn btn-primary btn-lg" id="form-submit" onclick="return Add()">Sign Up</button>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
 
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="secondSurName" placeholder="Second SurName" required="required" autocomplete="off">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="email" class="form-control" name="email" placeholder="Email" required="required" autocomplete="off">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="role" placeholder="Role" required="required">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="idSupervisor" placeholder="Id Supervisor" required="required">
-                                                    </div>
-
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button type="submit" class="btn btn-primary btn-lg" id="form-submit" onclick="return Add()">Sign Up</button>
-                                                    </div>
-
-                                                </div>
-                                                <div class="modal-footer">
-
                                                 </div>
                                             </div>
+
                                         </div>
-                                    </div>
-                                </div>
+                    </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+       
+  
 
 </body>
 

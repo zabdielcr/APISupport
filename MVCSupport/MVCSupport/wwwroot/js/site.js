@@ -7,8 +7,104 @@
 $(document).ready(function () {
 
     LoadData();
-});
+    $('#myModal').modal();
 
+    $('#myModal').bootstrapValidator({
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: 'El nombre es obligatorio'
+                    }
+                }
+            },
+            edad: {
+                validators: {
+                    notEmpty: {
+                        message: 'La edad es obligatoria'
+                    },
+                    integer: {
+                        message: 'Debe introducir un valor entero'
+                    }
+                }
+            },
+            direccion: {
+                validators: {
+                    notEmpty: {
+                        message: 'La dirección es obligatoria'
+                    }
+                }
+            }
+        }
+    });
+    /*$('#savedata').click(function () {
+        var data = {
+            "email": $("#email").val(),
+            "password": $("#password").val()
+        };
+        $.ajax({
+            url: "/Supporter/GetToAuthenticate",
+            type: "POST",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (response) {
+                if (response.Success) {
+                    $.get("@Url.Action(Index, Supporter)",function (data) {
+                        $('.container').html(data);
+                    });
+                }
+                else
+                    window.location.href = "@Url.Action(Index, Login)";
+            },
+            error: function () {
+                console.log('Login Fail!!!');
+            }
+        });
+    });
+   $("#alertYes").hide();
+    $("#alertNo").hide();
+    $("#begin").submit(function (e){
+        e.preventDefault();
+        user = $.trim($("#email").val());
+        pass = $.trim($("#pass").val());
+        if (user.length > 0 && pass.length > 0) {
+            $("#alertYes").fadeTo(2000, 500).slideUp(500, function () {
+                $("#alertYes").slideUp(500);
+            });
+        } else {
+            $("#alertNo").fadeTo(2000, 500).slideUp(500, function () {
+                $("#alertNo").slideUp(500);
+            });
+ 
+    
+    }
+    
+     });*/
+    
+})
+
+function Alert() {
+    $("#alertYes").hide();
+    $("#alertNo").hide();
+    $("#begin").submit(function (e) {
+        e.preventDefault();
+        user = $.trim($("#email").val());
+        pass = $.trim($("#pass").val());
+        if (user.length > 0 && pass.length > 0) {
+            $("#alertYes").fadeTo(2000, 500).slideUp(500, function () {
+                $("#alertYes").slideUp(500);
+            });
+        } else {
+            $("#alertNo").fadeTo(2000, 500).slideUp(500, function () {
+                $("#alertNo").slideUp(500);
+            });
+
+
+        }
+
+    })
+}
 
 function LoadData() {
     $.ajax({
@@ -42,18 +138,16 @@ function LoadData() {
 }
 
 function Add() {
- 
-   
-    }
+
     var supporter = {
       
-        name: $('#Name').val(),
-        firstSurname: $('#FirstSurname').val(),
-        secondSurname: $('#SecondSurname').val(),
-        email: $('#Email').val(),
-        password: $('#Password').val(),
-        role: $('#Role').val(),
-        idSupervisor: $('#IdSupervisor').val()
+        name: $('#name').val(),
+        firstSurname: $('#firstSurname').val(),
+        secondSurname: $('#secondSurname').val(),
+        email: $('#email').val(),
+        password: $('#password').val(),
+        role: $('#role').val(),
+        idSupervisor: $('#idSupervisor').val()
     };
     $.ajax({
         url: "/Supporter/Post",
@@ -62,39 +156,39 @@ function Add() {
         contentType: "application/json;charset=utf-8",
         dataType: "json",
         success: function (result) {
-            loadData();
+            //loadData();
             $('#myModal').modal('hide');
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
         }
     });
-
+}
 
   
 function getbyID(id) {
-    $('#Id').css('border-color', 'lightgrey');
-    $('#Name').css('border-color', 'lightgrey');
-    $('#FirstSurname').css('border-color', 'lightgrey');
-    $('#SecondSurname').css('border-color', 'lightgrey');
-    $('#Email').css('border-color', 'lightgrey');
-    $('#Password').css('border-color', 'lightgrey');
-    $('#Role').css('border-color', 'lightgrey');
-    $('#IdSupervisor').css('border-color', 'lightgrey');
+    $('#id').css('border-color', 'lightgrey');
+    $('#name').css('border-color', 'lightgrey');
+    $('#firstSurname').css('border-color', 'lightgrey');
+    $('#secondSurname').css('border-color', 'lightgrey');
+    $('#email').css('border-color', 'lightgrey');
+    $('#password').css('border-color', 'lightgrey');
+    $('#role').css('border-color', 'lightgrey');
+    $('#idSupervisor').css('border-color', 'lightgrey');
     $.ajax({
         url: "/Supporter/Exist/" + id,
         typr: "GET",
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         success: function (result) {
-            $('#Id').val(result.id);
-            $('#Name').val(result.name);
-            $('#FirstSurname').val(result.firstSurname);
-            $('#SecondSurname').val(result.secondSurname);
-            $('#Email').val(result.email);
-            $('#Password').val(result.password);
-            $('#Role').val(result.role);
-            $('#IdSupervisor').val(result.idSupervisor);
+            $('#id').val(result.id);
+            $('#name').val(result.name);
+            $('#firstSurname').val(result.firstSurname);
+            $('#secondSurname').val(result.secondSurname);
+            $('#email').val(result.email);
+            $('#password').val(result.password);
+            $('#role').val(result.role);
+            $('#idSupervisor').val(result.idSupervisor);
 
             $('#myModal').modal('show');
             $('#btnUpdate').show();
@@ -114,14 +208,14 @@ function Update() {
         return false;
     }
     var supporter = {
-        id: $('#Id').val(),
-        name: $('#Name').val(),
-        firstSurname: $('#FirstSurname').val(),
-        secondSurname: $('#SecondSurname').val(),
-        email: $('#Email').val(),
-        password: $('#Password').val(),
-        role: $('#Role').val(),
-        idSupervisor: $('#IdSupervisor').val()
+        id: $('#id').val(),
+        name: $('#name').val(),
+        firstSurname: $('#firstSurname').val(),
+        secondSurname: $('#secondSurname').val(),
+        email: $('#email').val(),
+        password: $('#password').val(),
+        role: $('#role').val(),
+        idSupervisor: $('#idSupervisor').val()
     };
     $.ajax({
         url: "/Supporter/Update",
@@ -132,11 +226,11 @@ function Update() {
         success: function (result) {
             loadData();
             $('#').modal('hide');
-            $('#Id').val("");
-            $('#FirstSurname').val("");
-            $('#SecondSurname').val("");
-            $('#Email').val("");
-            $('#Password').val("");
+            $('#id').val("");
+            $('#firstSurname').val("");
+            $('#secondSurname').val("");
+            $('#email').val("");
+            $('#password').val("");
         },
         error: function (errormessage) {
             alert(errormessage.responseText);

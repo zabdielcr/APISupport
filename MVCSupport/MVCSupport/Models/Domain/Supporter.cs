@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,9 +35,12 @@ namespace MVCSupport.Models.Domain
         {
         }
 
+      
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
+      
         public string FirstSurname { get => firstSurname; set => firstSurname = value; }
+      
         public string SecondSurname { get => secondSurname; set => secondSurname = value; }
         public string Email { get => email; set => email = value; }
         public string Password { get => password; set => password = value; }
