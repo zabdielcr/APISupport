@@ -103,3 +103,4 @@ C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSuppor
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.pdb
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.genruntimeconfig.cache
 C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\MVCSupport.csprojAssemblyReference.cache
+C:\Users\zabdiel\Desktop\MVCSupport\MVCSupport\obj\Debug\netcoreapp3.1\Razor\Views\List\Index.cshtml.g.cs

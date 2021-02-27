@@ -38,7 +38,7 @@ namespace MVCSupport.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
+                client.BaseAddress = new Uri("https://localhost:44385/api/supporter/");
                 var responseTask = client.GetAsync("GetAll");
                 responseTask.Wait();
 
@@ -68,7 +68,7 @@ namespace MVCSupport.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
+                client.BaseAddress = new Uri("https://localhost:44385/api/supporter/");
                 var responseTask = client.GetAsync("Exists");
                 responseTask.Wait();
 
@@ -91,44 +91,16 @@ namespace MVCSupport.Controllers
             return Json(supporter);
         }
 
-        public JsonResult Put()
-        {
-
-            IEnumerable<Supporter> supporter = null;
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
-                var responseTask = client.GetAsync("Put");
-                responseTask.Wait();
-
-                var result = responseTask.Result;
-
-                if (result.IsSuccessStatusCode)
-                {
-                    var readTask = result.Content.ReadAsAsync<IList<Supporter>>();
-                    readTask.Wait();
-
-                    supporter = readTask.Result;
-                }
-                else
-                {
-                    supporter = Enumerable.Empty<Supporter>();
-                    ModelState.AddModelError(string.Empty, "Server error. Please contact a administrator");
-                }
-            }
-
-            return Json(supporter);
-        }
+        
         [HttpPost]
         public int Post([FromBody] Supporter supporter)
         {
-
+          
 
             using (var client = new HttpClient())
             {
 
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
+                client.BaseAddress = new Uri("https://localhost:44385/api/supporter/");
 
                 HttpResponseMessage result = client.PostAsJsonAsync("Post", supporter).Result;
 
@@ -162,7 +134,7 @@ namespace MVCSupport.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
+                client.BaseAddress = new Uri("https://localhost:44385/api/supporter/");
                 var responseTask = client.GetAsync("Delete" +id.ToString());
                 responseTask.Wait();
 
@@ -194,7 +166,7 @@ namespace MVCSupport.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
+                client.BaseAddress = new Uri("https://localhost:44385/api/supporter/");
                 try
                 {
                     var responseTask = client.GetAsync("GetToAuthenticate?email=" + email + "&password=" + password);
@@ -222,12 +194,12 @@ namespace MVCSupport.Controllers
             return supporter;
         }
         [HttpPost]
-        public ActionResult create(Supporter supporter)
+        public ActionResult create([FromBody] Supporter supporter)
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44343/api/supporter/");
-                var postTask = client.PostAsJsonAsync<Supporter>("supporter", supporter);
+                client.BaseAddress = new Uri("https://localhost:44385/api/supporter/");
+                var postTask = client.PostAsJsonAsync<Supporter>("Post", supporter);
                 postTask.Wait();
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
